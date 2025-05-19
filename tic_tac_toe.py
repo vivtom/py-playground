@@ -1,56 +1,67 @@
+''' 
+The code for this project is my first draft and i will improve this in the near future. Whole logic of the game is mine.
+It works fine, just have to handle some edge cases and improve the code as well. 
+'''
+
 ''' Tic Tac Toe Game
 Write a program to create a classic Tic Tac Toe game. Two players take turns
 marking Xs and Os on a 33 grid. The first player to align three of their marks
 either vertically, horizontally, or diagonally wins the game.
-The board is printed after each move, with colored marks to distinguish between
-the players. The game checks for a winner after each move and ends when a
-player wins or when the board is full, resulting in a draw. '''
+ '''
 
 player = None
-
-
+a=b=c=d=e=f=g=h=i = ' '
+# n = 0 to stop when no one ones
 def game():
-    player_O()
-    player_X()
-    win()
+    
+    # global n  to stop when no one ones
+    # while n <= 9:     to stop when no one ones
+        player_O()
+        player_X()
+        # n += 1
+        win(a,b,c,d,e,f,g,h,i)
     
 def player_O():
     print("player O's turn")
     global player
     player = 'O'
     where()
+    
   
 
 def where():
     r = int(input('enter row'))
     co = int(input('enter column'))
+    # if r != None and co != None:  IF ANYONE TAKES already taken BOX
+    #     print('already taken, choose another values')
+    # where()
     print(f'you row value was: {r}')
     print(f'you column value was: {co}')
     put_mark_on_board(r,co)
 
 
 def put_mark_on_board(r,co):
-    a,b,c,d,e,f,g,h,i = None,None,None,None,None,None,None,None,None
+    global a,b,c,d,e,f,g,h,i
     
     if r == 1 and co == 1:
-        a == player
+        a = player
     elif r == 1 and co == 2:
-        b == player
+        b = player
     elif r == 1 and co == 3:
-        c == player
+        c = player
     elif r == 2 and co == 1:
-        d == player
+        d = player
     elif r == 2 and co == 2:
-        e == player
+        e = player
     elif r == 2 and co == 3:
-        f == player
+        f = player
     elif r == 3 and co == 1:
-        g == player
+        g = player
     elif r == 3 and co == 2:
-        h == player
+        h = player
     elif r == 3 and co == 3:
-        i == player
-    visual()
+        i = player
+    visual(a,b,c,d,e,f,g,h,i)
 
 def visual(a,b,c,d,e,f,g,h,i):
     print('---+---+---')
@@ -60,8 +71,11 @@ def visual(a,b,c,d,e,f,g,h,i):
     print('---+---+---')
     print(f' {g}  | {h}  | {i} ')
     print('---+---+---')
+    
+    
 
 def player_X():
+    print('X turn')
     global player
     player = 'X'
     where()
